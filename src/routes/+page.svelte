@@ -1,7 +1,8 @@
-<h1 class="text-3xl font-bold underline">Hello world!</h1>
+<script lang="ts">
+	import Login from '@components/auth/login.svelte';
+	import Toolbar from '@components/nav/toolbar.svelte';
+</script>
 
-<style lang="postcss">
-	:global(html) {
-		background-color: theme(colors.gray.100);
-	}
-</style>
+<Toolbar />
+
+<Login />
