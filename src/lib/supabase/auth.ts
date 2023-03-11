@@ -1,5 +1,5 @@
 import { authUser } from "j-supabase";
-import { writable } from "svelte/store";
+import { readable } from "svelte/store";
 import { supabase } from "./supabase"
 
 export async function signInWithGoogle() {
@@ -29,10 +29,10 @@ export interface Auth {
     loading: boolean;
 }
 
-export const auth = writable<Auth>({ data: null, loading: true }, set => {
+export const auth = readable<Auth>({ data: null, loading: true }, set => {
     return authUser(supabase).subscribe((user) => {
         if (!user?.email) {
-            set({ data: null, loading: false });
+            set({ data: null, loading: false }); 
             return;
         }
         set({
